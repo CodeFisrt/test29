@@ -1,0 +1,45 @@
+
+<div class="row">
+    <div class="col-3">
+        <label for="">Dept</label>
+        <select [(ngModel)]="selectedDept" (change)="getDesignationByDept()">
+            <option value="">Select</option>
+            @for (item of deptList; track $index) {
+                <option [value]="item.departmentId">{{item.departmentName}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <label for="">Designation</label>
+        <select name="" id="">
+            <option value=""></option>
+            @for (item of designationList; track $index) {
+                <option [value]="item.designationId">{{item.designationName}}</option>
+            }
+        </select>
+    </div>
+</div>
+
+<button (click)="getAllUser()">get Users</button>
+
+<br>
+<button (click)="getToDoList()">get Todo Items</button>
+
+<div class="row">
+    <div class="col-6">
+        <ul>
+            @for (item of userList; track $index) {
+                <li> {{item.username}} - {{item.email}}</li>
+            }
+           
+        </ul>
+    </div>
+    <div class="col-6">
+        <ul>
+            @for (item of todoList; track $index) {
+                <li> {{item.title}} - {{item.completed}}</li>
+            }
+           
+        </ul>
+    </div>
+</div>

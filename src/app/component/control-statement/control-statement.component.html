@@ -1,0 +1,138 @@
+<div class="row">
+    <div class="col-4">
+        <ul>
+            @for (city of cityList; track $index) {
+                <li> {{city}}</li>
+            }
+        </ul>
+    </div>
+    <div class="col-4">
+        <select name="" id="">
+            @for (item of cityList; track $index) {
+                <option > {{item}}</option>
+            } 
+        </select>
+    </div>
+    <div class="col-4">
+       @for(city of cityList;track $index){
+        <button class="btn btn-success">{{city}}</button>
+       }
+    </div>
+</div>
+<div class="col-6">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>mobile</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of studentList; track $index) {
+                <tr>
+                    <td>{{$index +1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.city}}</td>
+                    <td>{{item.mobile}}</td>
+                    <td>
+                        @if (item.isActiveL == true) {
+                            <p>Student Active</p>
+                        } @else {
+                            <p>Student De-Active</p>
+                        } 
+                    </td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>
+
+
+<div class="row">
+    <div class="col-3">
+        @if(isDiv1Visiable == true) {
+            <div class="p-4 bg-success"  >
+                Div 1
+            </div>
+        }
+    </div>
+    <div class="col-3">
+        @if (div2Status == 'Show') {
+            <div class="p-4 bg-secondary" >
+                Div 2
+            </div>
+        } @else {
+            <div class="p-4 bg-danger" >
+                Div 2 else
+            </div>
+        }
+    </div>
+    <div class="col-3">
+       
+        <select class="form-select" [(ngModel)]="selectedCast"  >
+            <option value="">Select Cast</option>
+            <option value="OBC">OBC</option>
+            <option value="SC-NT">SC-NT</option>
+            <option value="OPEN">OPEN</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div class="col-3">
+        @if (selectedCast == 'Other') {
+            <input type="text"   class="form-control" placeholder="Other"/>
+        } 
+    </div>
+</div>
+
+<div class="row pt-3">
+    <div class="col-3">
+        <input type="checkbox"  [(ngModel)]="isDiv1Visiable"  />
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="chnageStatus('Show')"  >Show</button>
+        <button class="btn btn-danger"  (click)="chnageStatus('Hide')" >Hide</button>
+    </div>
+    <div class="col-3">
+      
+        <div class="p-4 bg-danger"  >
+            div 3
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-4 bg-primary"  >
+            div 4
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" maxlength="3" [(ngModel)]="dayStartChar" placeholder="Enter Starting Day Char"/> 
+    </div>
+    <div class="col-3">
+        @if (dayStartChar == 'sun') {
+            <p>Sunday</p>
+        } @else if (dayStartChar == 'mon') {
+            <p>Monday</p>
+        } @else if (dayStartChar == 'tue') {
+            <p>Tuesday</p>
+        } @else if (dayStartChar == 'wed') {
+            <p>Wednesday</p>
+        } @else if (dayStartChar == 'thu') {
+            <p>Thursday</p>
+        } @else if (dayStartChar == 'sat') {
+            <p>Saturday</p>
+        } @else {
+            @if (dayStartChar != "")   {
+                <p>NOt Matched</p>
+            } @else {
+                <p>Type Day Name</p>
+            }
+           
+        }
+    </div>
+</div>

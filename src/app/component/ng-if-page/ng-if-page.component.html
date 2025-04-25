@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-3">
+        <div class="p-4 bg-success" *ngIf="isDiv1Visiable == true">
+            Div 1
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-4 bg-secondary" *ngIf="div2Status == 'Show'">
+            Div 2
+        </div>
+    </div>
+    <div class="col-3">
+        <select class="form-select" [(ngModel)]="selectedCast">
+            <option value="">Select Cast</option>
+            <option value="OBC">OBC</option>
+            <option value="SC-NT">SC-NT</option>
+            <option value="OPEN">OPEN</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <input type="text" *ngIf="selectedCast == 'Other'" class="form-control" placeholder="Other"/>
+    </div>
+</div>
+
+<div class="row pt-3">
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="isDiv1Visiable" />
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="chnageStatus('Show')">Show</button>
+        <button class="btn btn-danger"  (click)="chnageStatus('Hide')">Hide</button>
+    </div>
+    <div class="col-3">
+        <div class="p-4 bg-danger" *ngIf="true">
+            div 3
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-4 bg-primary" *ngIf="city1 == city2">
+            div 4
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" [(ngModel)]="city1" placeholder="city 1"/>
+        <input type="text"  [(ngModel)]="city2" placeholder="city 2"/>
+    </div>
+</div>

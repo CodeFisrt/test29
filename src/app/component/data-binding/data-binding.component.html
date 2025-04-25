@@ -1,0 +1,106 @@
+<table >
+    <tr>
+        <td>
+            firstName  => {{firstName}}
+        </td>
+        <td>
+            isActive => <span> {{isActive}} </span> 
+        </td>
+        <td>
+            date => {{currentDate}}
+        </td>
+        <td>
+            courser Name :{{courserName}}
+        </td>
+    </tr>
+</table>
+<table>
+    <td>
+        <input type="text" [placeholder]="placeHolderText" value="{{courserName}}">
+    </td>
+</table>
+
+<table>
+    <tr>
+        <td >
+            <input type="text" [value]="firstName">
+        </td>
+        <td>
+            <input type="checkbox" [(ngModel)]="isActive" >
+        </td>
+        <td>
+            isActive = {{isActive ? 'true':'false'}}
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td >
+            <button (click)="showWelcomeMessage()"> Show Message</button>
+        </td>
+        <td>
+           <select (change)="onCityChange()">
+                <option value="Nagpur">Nagpur</option>
+                <option value="Pune">Pune</option>
+                <option value="Jaipur">Jaipur</option>
+           </select>
+        </td>
+        <td>
+            <select [(ngModel)]="selectedCity">
+                 <option value="">Select City</option>
+                 <option value="Nagpur">Nagpur</option>
+                 <option value="Pune">Pune</option>
+                 <option value="Jaipur">Jaipur</option>
+            </select>
+         </td>
+         <td>
+            selectedCity =  {{selectedCity}}
+         </td>
+    </tr>
+</table>
+
+<div (click)="showWelcomeMessage()" style="width:100px;height: 100px;background-color: red;">
+    DIV 1
+</div>
+
+<button (click)="showMessage('this is angular')">Show Angular</button> 
+<button (click)="showMessage('this is Javs btn')">Show JAVA</button>
+<button (click)="showMessage('Hi From React')">Show React Js</button>
+
+<div (mouseenter)="onMouseIn()" (mouseleave)="onMOuseLeft()" style="width:200px;height: 100px;background-color: green;">
+
+    
+</div>
+
+<hr>
+<hr>
+<!-- <input type="text" (input)="onCourseDurationCHnage($event)" [value]="courseDuration"/> -{{courseDuration}} -->
+
+<hr>
+
+<input type="text" [(ngModel)]="courseDuration" /> == {{courseDuration}}
+
+<table>
+
+    <tr>
+        <td>
+            <input type="text" [(ngModel)]="num1">
+            <div *ngIf="num1 == ''" class="text-danger">ENter Num 1</div>
+        </td>
+        <td>
+            <input type="text"  [(ngModel)]="num2">
+            <div *ngIf="num2 == ''" class="text-danger">ENter Num 1</div>
+        </td>
+        <td>
+            <button (click)="onAdd()">Add</button>
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="result">
+        </td>
+        <td *ngIf="result != null && result != ''">
+            <p *ngIf="result % 2 == 0">No is Even</p>
+            <p *ngIf="result % 2 != 0">No is Odd</p>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-3">
+        <p> {{firstName}}</p>
+        <br>
+        <p>{{firstName | uppercase}}</p>
+    </div>
+    <div class="col-3">
+        <p> {{courseDetails}}</p>
+        <br>
+        <p>{{courseDetails | lowercase}}</p> 
+    </div>
+    <div class="col-3">
+        <p> {{courseDetails}}</p>
+        <br>
+        <p>{{courseDetails | titlecase}}</p> 
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>{{currentDate}}</p>
+        <br>
+        <p>{{currentDate|date}} </p>
+        <br>
+        <p>{{currentDate|date:'dd-MM-yyyy'}} </p>
+        <br>
+        <p>{{currentDate|date:'dd-MMM-yy'}} </p>
+        <br>
+        <p>{{currentDate|date:'dd/MMMM/yy'}} </p>
+        <p>{{currentDate|date:'hh:mm:ss'}} </p>
+    </div>
+    <div class="col-3">
+        <p> {{cityList}}</p>
+        <br>
+        <p> {{cityList | slice:0:2}}</p>
+        <p> {{cityList | slice:1:4}}</p>
+
+        <p>{{firstName |slice:0:2}}</p>
+    </div>
+    <div class="col-3">
+        {{studnObj | json}}
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success">
+                User List
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Full Name</th>
+                            <th>User Name</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of userDataList; track $index) {
+                            <tr>
+                                <td>{{$index}}</td>
+                                <td>{{item.fullName}}</td>
+                                <td>{{item.userName}}</td>
+                                <td>{{item.password}}</td>
+                                <td>
+                                    <button class="btn btn-danger"  >Delete</button>
+                                    <button class="btn btn-success" (click)="onEdit(item)" >Edit</button>
+                                </td>
+                            </tr>
+                        }
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success">
+                New User 
+            </div>
+            <form [formGroup]="userFrom">
+                <div class="card-body"> 
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">User Name</label>
+                            <input type="text" formControlName="userName"   class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Email</label>
+                            <input type="text" formControlName="emailId" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Full Name</label>
+                            <input type="text"  formControlName="fullName"  class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Password</label>
+                            <input type="text"  formControlName="password" class="form-control" >
+                        </div>
+                    </div>
+                    
+                    <div class="row pt-3">
+                        <div class="col-12">
+                            
+                                <button class="btn btn-success" (click)="onSaveUser()" >Save User</button> 
+                             
+                                <button class="btn btn-warning"  >Update User</button>
+                           
+                           
+                        </div>
+                         
+                    </div>
+                </div>
+            </form> 
+        </div>
+    </div>
+</div>
+

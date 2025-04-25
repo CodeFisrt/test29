@@ -1,0 +1,104 @@
+<!-- <div class="row">
+    <div  [ngClass]="isFormVisiable == true?'col-8':'col-12'">
+        <div class="card">
+            <div class="card-header bg-secondary">
+               
+                <div class="row">
+                    <div class="col-6">
+                        List
+                    </div>
+                    <div class="col-6 text-end">
+                        <button class="btn btn-primary" (click)="showForm()">Show Form</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="p-4" [ngClass]="div1ClassName">
+                            Div1 
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="p-4" [ngClass]="isDiv2Checked == true ? 'bg-primary':'bg-danger'">
+                            div 2
+                        </div>
+                    </div>
+                    <div class="col-3">
+                         <div class="p-4" [ngClass]="div3Class">
+                            div 3
+                         </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-3">
+                         <button class="btn btn-success" (click)="onAddDiv1Class('bg-success')"> Add </button>
+                         <button class="btn btn-danger" (click)="onAddDiv1Class('bg-danger')"> Add </button>
+                    </div>
+                    <div class="col-3">
+                        <input type="checkbox" [(ngModel)]="isDiv2Checked">
+                   </div>
+                   <div class="col-3">
+                        <input type="text" [(ngModel)]="div3Class">
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4" *ngIf="isFormVisiable">
+        <div class="card">
+            <div class="card-header bg-secondary">
+                <div class="row">
+                    <div class="col-6">
+                        New Form
+                    </div>
+                    <div class="col-6 text-end">
+                        <button class="btn btn-primary" (click)="hideForm()">Close</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                 
+              
+            </div>
+        </div>
+    </div>
+</div>
+ -->
+ <div class="row">
+    <div class="col-3">
+        <div class="p-4"  [ngStyle]="{'background-color':div1Color}" >
+            Div1 
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-4"  [ngStyle]="{'background-color': isDiv2Checked == true ? 'blue':'gray'}" >
+            div 2
+        </div>
+    </div>
+    <div class="col-3">
+         <div class="p-4" [ngStyle]="{'background-color':div3Class,color:div3FontColor,'font-size':'40px'}" style="font-size:30px" >
+            div 3
+         </div>
+    </div>
+    <div class="col-3">
+        <div class="p-4" [ngStyle]="myCss">
+            div 4
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+         <button class="btn btn-success" (click)="onAddDiv1Class('bg-success')"> Add </button>
+         <button class="btn btn-danger" (click)="onAddDiv1Class('bg-danger')"> Add </button>
+    </div>
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="isDiv2Checked">
+   </div>
+   <div class="col-3">
+        <input type="text" [(ngModel)]="div3Class">
+        <input type="text" [(ngModel)]="div3FontColor">
+   </div>
+</div>
