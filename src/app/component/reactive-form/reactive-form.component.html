@@ -45,10 +45,21 @@
                         <div class="col-6">
                             <label for="">User Name</label>
                             <input type="text" formControlName="userName"   class="form-control">
+                                <div class="text-danger">
+                                    @if ((userFrom.controls['userName'].touched || userFrom.controls['userName'].dirty) && userFrom.controls['userName'].errors?.['required']) {
+                                        <span>This is requred</span>
+                                    }
+                                </div>
                         </div>
                         <div class="col-6">
                             <label for="">Email</label>
                             <input type="text" formControlName="emailId" class="form-control">
+                            @if ((userFrom.controls['emailId'].touched || userFrom.controls['emailId'].dirty) && userFrom.controls['emailId'].errors?.['required']) {
+                                <span>This is requred</span>
+                            }
+                            @if ((userFrom.controls['emailId'].touched || userFrom.controls['emailId'].dirty) && userFrom.controls['emailId'].errors?.['email']) {
+                                <span>Email Id Not Proper</span>
+                            }
                         </div>
                     </div>
                     <div class="row">

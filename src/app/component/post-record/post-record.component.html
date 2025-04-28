@@ -39,41 +39,63 @@
             <div class="card-header bg-success">
                 New User 
             </div>
-            <div class="card-body">
-                {{newUser| json}}
-                <div class="row">
-                    <div class="col-6">
-                        <label for="">User Name</label>
-                        <input type="text" [(ngModel)]="newUser.userName"  class="form-control">
+            <div class="card-body" > 
+                <form #userform="ngForm">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">User Name</label>
+                            <input type="text" #uname="ngModel" [ngClass]="(uname.touched || uname.dirty) && uname.errors ? 'border-danger':''" name="userName" [(ngModel)]="newUser.userName" required minlength="3"  class="form-control">
+                            <div class="text-danger"> 
+                                @if ((uname.touched || uname.dirty) && uname.errors?.['required']) {
+                                    <span>This is Reqired</span>
+                                }
+                                @if ((uname.touched || uname.dirty) && uname.errors?.['minlength']) {
+                                    <span>min 3 Char Required</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Email</label>
+                            <input type="email" #email="ngModel" name="emailId" [(ngModel)]="newUser.emailId" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required class="form-control">
+                            <div class="text-danger">
+                                @if (email.errors?.['required']) {
+                                    <span>This is Reqired</span>
+                                }
+                                @if (email.errors?.['pattern']) {
+                                    <span>Email is Not Proper</span>
+                                }
+                               
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <label for="">Email</label>
-                        <input type="text" [(ngModel)]="newUser.emailId"  class="form-control">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Full Name</label>
+                            <input type="text" name="fullName" [(ngModel)]="newUser.fullName"   class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Password</label>
+                            <input type="text" name="password" #pwd="ngModel" [(ngModel)]="newUser.password" required class="form-control" >
+                            <div class="text-danger">
+                                <span>This is Reqired</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <label for="">Full Name</label>
-                        <input type="text" [(ngModel)]="newUser.fullName"  class="form-control">
+                    
+                    <div class="row pt-3">
+                        <div class="col-12">
+                            @if (newUser.userId == 0) {
+                                <button class="btn btn-success" [disabled]="userform.invalid" (click)="onSaveUser()">Save User</button> 
+                            } @else {
+                                <button class="btn btn-warning" (click)="onUpdateUser()">Update User</button>
+                            }
+                   
+                           
+                        </div>
+                         
                     </div>
-                    <div class="col-6">
-                        <label for="">Password</label>
-                        <input type="text" [(ngModel)]="newUser.password" class="form-control" >
-                    </div>
-                </div>
-                
-                <div class="row pt-3">
-                    <div class="col-12">
-                        @if (newUser.userId == 0) {
-                            <button class="btn btn-success" (click)="onSaveUser()">Save User</button> 
-                        } @else {
-                            <button class="btn btn-warning" (click)="onUpdateUser()">Update User</button>
-                        }
+                </form>
                
-                       
-                    </div>
-                     
-                </div>
             </div>
         </div>
     </div>

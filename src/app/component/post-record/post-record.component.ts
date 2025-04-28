@@ -1,11 +1,11 @@
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, NgClass } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-post-record',
-  imports: [FormsModule,JsonPipe],
+  imports: [FormsModule,JsonPipe,NgClass],
   templateUrl: './post-record.component.html',
   styleUrl: './post-record.component.css'
 })

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -15,8 +15,8 @@ export class ReactiveFormComponent {
 
   userFrom: FormGroup = new FormGroup({ 
       userId : new FormControl(0),
-      userName: new FormControl(""),
-      emailId: new FormControl(""),
+      userName: new FormControl("" ,[Validators.required,Validators.minLength(4)]),
+      emailId: new FormControl("",[Validators.required,Validators.email]),
       fullName: new FormControl(""),
       password: new FormControl("")
   })
