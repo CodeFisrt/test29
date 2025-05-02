@@ -15,6 +15,7 @@ import { LifeCycleComponent } from './component/life-cycle/life-cycle.component'
 import { GetApiComponent } from './component/get-api/get-api.component';
 import { PostRecordComponent } from './component/post-record/post-record.component';
 import { ReactiveFormComponent } from './component/reactive-form/reactive-form.component';
+import { ViewchildComponent } from './component/viewchild/viewchild.component';
 
 export const routes: Routes = [
     {
@@ -52,6 +53,10 @@ export const routes: Routes = [
     {
         path:"reactiveForm",
         component:ReactiveFormComponent
+    },
+    {
+        path:"view-child",
+        component:ViewchildComponent
     },
     {
         path:'designation',

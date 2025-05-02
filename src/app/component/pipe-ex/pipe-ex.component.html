@@ -40,3 +40,31 @@
         {{studnObj | json}}
     </div>
 </div>
+<button (click)="changeNAme()">Chnage NAme</button>
+
+<div class="row">
+    <div class="col-6">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Mobile</th>
+                    <th>Dob</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of userList; track $index) {
+                    <tr>
+                        <td>{{item.uName | na}}</td>
+                        <td>{{item.city| na}}</td>
+                        <td>{{item.state| na}}</td>
+                        <td>{{item.mobile| na:'Contact Not Provided'}}</td>
+                        <td>{{item.dob | na}}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

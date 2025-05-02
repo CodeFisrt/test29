@@ -2,6 +2,7 @@ import { JsonPipe, NgClass } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { BankService } from '../../services/bank.service';
 
 @Component({
   selector: 'app-post-record',
@@ -21,19 +22,32 @@ export class PostRecordComponent implements OnInit {
   userDataList: any[]=[]
 
   http = inject(HttpClient);
+
+  bankSrv=  inject(BankService);
+
   firstName = "Chetan";
   lastName = "Jogi";
   fullName = "";
 
   ngOnInit(): void {
-
+    debugger;
+    const result =  this.bankSrv.addTwoNo(23,45);
+    debugger;
     this.fullName = this.firstName +" " +this.lastName;
     this.getUsers()
   }
-  getUsers() {
+  getUsersOld() {
     this.http.get("https://projectapi.gerasim.in/api/BankLoan/GetAllUsers").subscribe((result:any)=>{
       debugger;
       this.userDataList = result.data;
+    })
+  }
+
+  getUsers() {
+    debugger;
+    this.bankSrv.getAllUsers().subscribe((res:any)=>{
+      debugger;
+      this.userDataList = res.data;
     })
   }
   onSaveUser() {

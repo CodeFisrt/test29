@@ -2,35 +2,39 @@
     <div class="col-8">
         <div class="card">
             <div class="card-header bg-success">
-                User List
+                User List 
+                <button (click)="showTable = true">Show Table</button>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Sr No</th>
-                            <th>Full Name</th>
-                            <th>User Name</th>
-                            <th>Password</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for (item of userDataList; track $index) {
+                @if (showTable) {
+                    <table class="table table-bordered">
+                        <thead>
                             <tr>
-                                <td>{{$index}}</td>
-                                <td>{{item.fullName}}</td>
-                                <td>{{item.userName}}</td>
-                                <td>{{item.password}}</td>
-                                <td>
-                                    <button class="btn btn-danger"  >Delete</button>
-                                    <button class="btn btn-success" (click)="onEdit(item)" >Edit</button>
-                                </td>
+                                <th>Sr No</th>
+                                <th>Full Name</th>
+                                <th>User Name</th>
+                                <th>Password</th>
+                                <th>Action</th>
                             </tr>
-                        }
-                       
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @for (item of userList$ |async; track $index) {
+                                <tr>
+                                    <td>{{$index}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.username}}</td>
+                                    <td>{{item.email}}</td>
+                                    <td>
+                                        <button class="btn btn-danger"  >Delete</button>
+                                        <button class="btn btn-success" (click)="onEdit(item)" >Edit</button>
+                                    </td>
+                                </tr>
+                            }
+                           
+                        </tbody>
+                    </table>
+                }
+              
             </div>
         </div>
     </div>
