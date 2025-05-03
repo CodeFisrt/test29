@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <h3 class="mb-4">User Registration Form</h3>
+    <form id="userForm" [formGroup]="userForm">
+        <div class="mb-3">
+            <label for="userType" class="form-label">User Type</label>
+            <select  class="form-select" formControlName="userType" id="userType">
+                <option value="">Select Type</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" formControlName="userName" id="username" placeholder="Enter username" />
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" id="email" placeholder="Enter email" />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Password Required</label>
+            <input type="checkbox" id="email" formControlName="isPasswordRequired" placeholder="Enter email" />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">iS Uses Type Required</label>
+            <input type="checkbox" id="email" formControlName="isUserTypeReq" placeholder="Enter email" />
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="password" placeholder="Enter password" />
+        </div>
+
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword" placeholder="Confirm password"  />
+        </div>
+
+        <div class="mb-3" id="adminCodeDiv">
+            <label for="adminCode" class="form-label">Admin Code </label>
+            <input type="text" class="form-control" formControlName="adminCode" id="adminCode" placeholder="Enter Admin Code" />
+            <div class="text-danger"> 
+                @if (userForm.controls['adminCode'].errors?.['required']) {
+                    <span>This Is Required</span>
+                }
+            </div>
+        </div>
+
+        
+
+        <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Submit</button>
+    </form>
