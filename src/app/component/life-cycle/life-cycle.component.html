@@ -6,7 +6,20 @@
 <br>
 {{first}}
 
-<br>
+<br >
 <input  type="text" [(ngModel)]="last" /> 
 
-<button (click)="showAler()">ssss</button>
+<app-my-button [btnTitle]="'Save User'"
+ [btnClassName]="'btn-primary'" (onBtnClick)="showAler($event)"></app-my-button>
+
+
+<!-- <button (click)="showAler()">ssss</button> -->
+
+<!-- 
+<ul>
+     @for (item of stateList; track $index) {
+        <li>{{item}}</li>
+    } 
+     
+</ul> -->
+<app-my-ul [arrayList]="stateList" [title]="'State List'"></app-my-ul>

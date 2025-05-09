@@ -1,9 +1,12 @@
 import { NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
+import { HighlightDirective } from '../../directive/highlight.directive';
+import { MyUlComponent } from "../../resusable/my-ul/my-ul.component";
+import { MyButtonComponent } from "../../resusable/my-button/my-button.component";
 
 @Component({
   selector: 'app-ngfor-page',
-  imports: [NgFor,NgIf,NgStyle],
+  imports: [NgFor, NgIf, NgStyle, HighlightDirective, MyUlComponent, MyButtonComponent],
   templateUrl: './ngfor-page.component.html',
   styleUrl: './ngfor-page.component.css'
 })
@@ -19,4 +22,8 @@ export class NgforPageComponent {
     {name:"EEE",city:"Jaipur",mobile:"34534534", isActiveL:true,grade:"C",attendance:50},
     {name:"FFF",city:"Bhopal",mobile:"123123123", isActiveL:false,grade:"D",attendance:20}
   ]
+
+  showAlert() {
+    alert("Hi FromgFor")
+  }
 }

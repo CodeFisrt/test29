@@ -3,15 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { BankService } from '../../services/bank.service';
+import { DisableDirective } from '../../directive/disable.directive';
 
 @Component({
   selector: 'app-post-record',
-  imports: [FormsModule,JsonPipe,NgClass],
+  imports: [FormsModule,JsonPipe,NgClass,DisableDirective],
   templateUrl: './post-record.component.html',
   styleUrl: './post-record.component.css'
 })
 export class PostRecordComponent implements OnInit {
 
+  isDisable = 'false';
   newUser: any = {
     "userId": 0,
     "userName": "",
@@ -31,6 +33,9 @@ export class PostRecordComponent implements OnInit {
 
   ngOnInit(): void {
     debugger;
+    setTimeout(() => {
+      this.isDisable =  'true';
+    }, 2000);
     const result =  this.bankSrv.addTwoNo(23,45);
     debugger;
     this.fullName = this.firstName +" " +this.lastName;

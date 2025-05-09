@@ -14,6 +14,7 @@ import { AsyncPipe } from '@angular/common';
 export class ReactiveFormComponent implements OnDestroy {
 
   userDataList: any[] = []
+  isDisabled: boolean = true;
   http = inject(HttpClient);
   bankServioce = inject(BankService);
   subscriptionArray: Subscription []= [];

@@ -17,6 +17,7 @@ import { PostRecordComponent } from './component/post-record/post-record.compone
 import { ReactiveFormComponent } from './component/reactive-form/reactive-form.component';
 import { ViewchildComponent } from './component/viewchild/viewchild.component';
 import { AdvReactiveFormComponent } from './component/adv-reactive-form/adv-reactive-form.component';
+import { SignalComponent } from './component/signal/signal.component';
 
 export const routes: Routes = [
     {
@@ -46,6 +47,9 @@ export const routes: Routes = [
     {
         path:"get-api",
         component:GetApiComponent
+    }, {
+        path:"signal",
+        component:SignalComponent
     },
     {
         path:"ad-reactive",

@@ -1,9 +1,11 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MyUlComponent } from "../../resusable/my-ul/my-ul.component";
+import { MyButtonComponent } from "../../resusable/my-button/my-button.component";
 
 @Component({
   selector: 'app-life-cycle',
-  imports: [FormsModule],
+  imports: [FormsModule, MyUlComponent, MyButtonComponent],
   templateUrl: './life-cycle.component.html',
   styleUrl: './life-cycle.component.css'
 })
@@ -12,6 +14,7 @@ AfterViewInit,AfterViewChecked,OnDestroy,OnChanges,DoCheck {
 
   first: string = ''
   last : string;
+  stateList: string[]=['MH','Mp','AP','Goa'];
 
   constructor() {
     debugger;
@@ -26,8 +29,9 @@ AfterViewInit,AfterViewChecked,OnDestroy,OnChanges,DoCheck {
     debugger;
     console.log("ngOnChanges")
   }
-  showAler(){
-    console.log("asdasd")
+  showAler(time: string){
+    debugger;
+   alert(time)
   }
   ngOnDestroy(): void {
     console.log("ngOnDestroy")

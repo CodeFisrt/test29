@@ -1,11 +1,12 @@
 import { DatePipe, JsonPipe, LowerCasePipe, SlicePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { NaPipe } from '../../pipe/na.pipe';
+import { HighlightDirective } from '../../directive/highlight.directive';
 
 @Component({
   selector: 'app-pipe-ex',
   imports: [UpperCasePipe,LowerCasePipe,TitleCasePipe,
-    DatePipe,SlicePipe,JsonPipe,NaPipe],
+    DatePipe,SlicePipe,JsonPipe,NaPipe,HighlightDirective],
   templateUrl: './pipe-ex.component.html',
   styleUrl: './pipe-ex.component.css'
 })

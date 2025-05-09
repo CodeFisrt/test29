@@ -43,8 +43,8 @@
                 <form #userform="ngForm">
                     <div class="row">
                         <div class="col-6">
-                            <label for="">User Name</label>
-                            <input type="text" #uname="ngModel" [ngClass]="(uname.touched || uname.dirty) && uname.errors ? 'border-danger':''" name="userName" [(ngModel)]="newUser.userName" required minlength="3"  class="form-control">
+                            <label for="" appDisable>User Name</label>
+                            <input type="text" id="txtUName" appDisable [isDisable]="isDisable" #uname="ngModel" [ngClass]="(uname.touched || uname.dirty) && uname.errors ? 'border-danger':''" name="userName" [(ngModel)]="newUser.userName" required minlength="3"  class="form-control">
                             <div class="text-danger"> 
                                 @if ((uname.touched || uname.dirty) && uname.errors?.['required']) {
                                     <span>This is Reqired</span>
@@ -100,4 +100,4 @@
         </div>
     </div>
 </div>
-
+ 
