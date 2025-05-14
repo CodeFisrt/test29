@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { debounce, debounceTime, distinctUntilChanged, filter, forkJoin, switchMap } from 'rxjs';
-
+import { DatePickerModule } from 'primeng/datepicker';
+import { SelectModule } from 'primeng/select';
 @Component({
   selector: 'app-admin',
-  imports: [JsonPipe, FormsModule, ReactiveFormsModule],
+  imports: [JsonPipe,SelectModule, FormsModule, ReactiveFormsModule,DatePickerModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
@@ -14,11 +15,27 @@ export class AdminComponent implements OnInit {
 
   searchBox: string = "";
   searchControl = new FormControl("");
+  date: Date= new Date();
+  minDate: Date = new Date();
+  newMindata: Date;
+  cities: any[]  = [
+            { name: 'New York', code: 'NY' },
+            { name: 'Rome', code: 'RM' },
+            { name: 'London', code: 'LDN' },
+            { name: 'Istanbul', code: 'IST' },
+            { name: 'Paris', code: 'PRS' }
+        ];
+
+    selectedCity: any | undefined;
 
   http = inject(HttpClient);
   productList: any[] = [];
 
   constructor() { 
+    const d = new Date(this.minDate);
+    d.setMonth(3);
+    //const monthbackData = this.minDate.setMonth(-1);
+    this.newMindata = d 
     this.searchControl.valueChanges.pipe(
       debounceTime(500),
       distinctUntilChanged(),
@@ -28,6 +45,9 @@ export class AdminComponent implements OnInit {
       console.log(response)
     })
    
+  }
+  onDateSelect() {
+    console.log('date se;evcted')
   }
 
   ngOnInit(): void {

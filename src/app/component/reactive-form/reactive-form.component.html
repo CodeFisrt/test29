@@ -2,12 +2,43 @@
     <div class="col-8">
         <div class="card">
             <div class="card-header bg-success">
-                User List 
+                User List
                 <button (click)="showTable = true">Show Table</button>
             </div>
             <div class="card-body">
                 @if (showTable) {
-                    <table class="table table-bordered">
+
+                   <ag-grid-angular
+          style="width: 100%; height: 500px;"
+          class="ag-theme-alpine"
+          [columnDefs]="colDefs"
+          [rowData]="rowData"
+        ></ag-grid-angular>
+                <!-- <p-table [paginator]="true" #dt2
+                    [globalFilterFields]="['emailId', 'fullName', 'userName', 'projectName']" [rows]="5"
+                    [rowsPerPageOptions]="[5, 10, 20]" [value]="userDataList" [tableStyle]="{ 'min-width': '50rem' }">
+
+                    <ng-template #header>
+                        <tr>
+                            <th>email Id</th>
+                            <th pSortableColumn="fullName" style="width:20%">
+                                full Name <p-sortIcon field="fullName" />
+                            </th>
+
+                            <th>user Name</th>
+                            <th>project Name</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-product>
+                        <tr>
+                            <td>{{ product.emailId }}</td>
+                            <td>{{ product.fullName }}</td>
+                            <td>{{ product.userName }}</td>
+                            <td>{{ product.projectName }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table> -->
+                <!-- <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Sr No</th>
@@ -32,65 +63,67 @@
                             }
                            
                         </tbody>
-                    </table>
+                    </table> -->
                 }
-              
+
             </div>
         </div>
     </div>
     <div class="col-4">
         <div class="card">
             <div class="card-header bg-success">
-                New User 
+                New User
             </div>
             <form [formGroup]="userFrom">
-                <div class="card-body"> 
+                <div class="card-body">
                     <div class="row">
                         <div class="col-6">
                             <label for="">User Name</label>
-                            <input type="text" formControlName="userName"   class="form-control">
-                                <div class="text-danger">
-                                    @if ((userFrom.controls['userName'].touched || userFrom.controls['userName'].dirty) && userFrom.controls['userName'].errors?.['required']) {
-                                        <span>This is requred</span>
-                                    }
-                                </div>
+                            <input type="text" formControlName="userName" class="form-control">
+                            <div class="text-danger">
+                                @if ((userFrom.controls['userName'].touched || userFrom.controls['userName'].dirty) &&
+                                userFrom.controls['userName'].errors?.['required']) {
+                                <span>This is requred</span>
+                                }
+                            </div>
                         </div>
                         <div class="col-6">
                             <label for="">Email</label>
                             <input type="text" formControlName="emailId" class="form-control">
-                            @if ((userFrom.controls['emailId'].touched || userFrom.controls['emailId'].dirty) && userFrom.controls['emailId'].errors?.['required']) {
-                                <span>This is requred</span>
+                            @if ((userFrom.controls['emailId'].touched || userFrom.controls['emailId'].dirty) &&
+                            userFrom.controls['emailId'].errors?.['required']) {
+                            <span>This is requred</span>
                             }
-                            @if ((userFrom.controls['emailId'].touched || userFrom.controls['emailId'].dirty) && userFrom.controls['emailId'].errors?.['email']) {
-                                <span>Email Id Not Proper</span>
+                            @if ((userFrom.controls['emailId'].touched || userFrom.controls['emailId'].dirty) &&
+                            userFrom.controls['emailId'].errors?.['email']) {
+                            <span>Email Id Not Proper</span>
                             }
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <label for="">Full Name</label>
-                            <input type="text"  formControlName="fullName"  class="form-control">
+                            <input type="text" formControlName="fullName" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="">Password</label>
-                            <input type="text"  formControlName="password" class="form-control" >
+                            <input type="text" formControlName="password" class="form-control">
                         </div>
                     </div>
-                    
+
                     <div class="row pt-3">
                         <div class="col-12">
-                            
-                                <button class="btn btn-success" (click)="onSaveUser()" >Save User</button> 
-                             
-                                <button class="btn btn-warning"  >Update User</button>
-                           
-                           
+
+                            <button class="btn btn-success" (click)="onSaveUser()">Save User</button>
+
+                            <button class="btn btn-warning">Update User</button>
+
+
                         </div>
-                         
+
                     </div>
                 </div>
-            </form> 
+            </form>
         </div>
     </div>
 </div>
-

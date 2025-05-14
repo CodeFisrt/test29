@@ -4,16 +4,36 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { BankService } from '../../services/bank.service';
 import { Observable, Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { TableModule } from 'primeng/table';
+import { InputIconModule } from 'primeng/inputicon';
+import { IconFieldModule } from 'primeng/iconfield';
 
+import { AgGridAngular } from 'ag-grid-angular'; // Angular Data Grid Component
+import type { ColDef } from 'ag-grid-community'; // Column Definition Type Interface
 @Component({
   selector: 'app-reactive-form',
-  imports: [ReactiveFormsModule,AsyncPipe],
+  imports: [ReactiveFormsModule,AsyncPipe,TableModule,InputIconModule,IconFieldModule,AgGridAngular],
   templateUrl: './reactive-form.component.html',
   styleUrl: './reactive-form.component.css'
 })
 export class ReactiveFormComponent implements OnDestroy {
 
   userDataList: any[] = []
+
+  rowData = [
+        { make: "Tesla", model: "Model Y", price: 64950, electric: true },
+        { make: "Ford", model: "F-Series", price: 33850, electric: false },
+        { make: "Toyota", model: "Corolla", price: 29600, electric: false },
+    ];
+
+    // Column Definitions: Defines the columns to be displayed.
+    colDefs: ColDef[] = [
+        { field: "make" },
+        { field: "model" },
+        { field: "price" },
+        { field: "electric" }
+    ];
+    
   isDisabled: boolean = true;
   http = inject(HttpClient);
   bankServioce = inject(BankService);
