@@ -18,6 +18,7 @@ import { ReactiveFormComponent } from './component/reactive-form/reactive-form.c
 import { ViewchildComponent } from './component/viewchild/viewchild.component';
 import { AdvReactiveFormComponent } from './component/adv-reactive-form/adv-reactive-form.component';
 import { SignalComponent } from './component/signal/signal.component';
+import { TemplateComponent } from './component/template/template.component';
 
 export const routes: Routes = [
     {
@@ -44,6 +45,7 @@ export const routes: Routes = [
         path:"dept",
         component:DepartmentComponent
     },
+   
     {
         path:"get-api",
         component:GetApiComponent
@@ -58,6 +60,14 @@ export const routes: Routes = [
     {
         path:"post-api",
         component:PostRecordComponent
+    },
+     {
+        path:"addUser/:id",
+        component:TemplateComponent,
+        data: {
+            icon:'sdas',
+            ttitle:'HIii'
+        }
     },
     {
         path:"reactiveForm",

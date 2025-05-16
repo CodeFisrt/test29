@@ -5,9 +5,10 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { debounce, debounceTime, distinctUntilChanged, filter, forkJoin, switchMap } from 'rxjs';
 import { DatePickerModule } from 'primeng/datepicker';
 import { SelectModule } from 'primeng/select';
+import { MyButtonComponent } from '../../resusable/my-button/my-button.component';
 @Component({
   selector: 'app-admin',
-  imports: [JsonPipe,SelectModule, FormsModule, ReactiveFormsModule,DatePickerModule],
+  imports: [JsonPipe,SelectModule, FormsModule, ReactiveFormsModule,DatePickerModule, MyButtonComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })

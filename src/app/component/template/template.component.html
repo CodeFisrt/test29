@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-3">
+        <ul>
+            <ng-container *ngFor="let city of cityList">
+                <li *ngIf="city != ''" >{{city}}</li>
+            </ng-container>
+        </ul>
+    </div>
+    <div class="col-3">
+        <div class="bg-primary" *ngIf="isShow else notVisisableTem">
+            DIv 1
+        </div>
+
+        <ng-template #notVisisableTem>
+            <p>Div is not visisable</p>
+        </ng-template>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <label for="" title="Some tooltip">Text <i class="fa fa-user"></i></label>
+        <input type="text" />
+    </div>
+     <div class="col-3">
+        <label for="" title="Some tooltip">Text <i class="fa fa-user"></i></label>
+        <input type="text" />
+    </div>
+     <div class="col-3">
+        <label for="" title="Some tooltip">Text <i class="fa fa-user"></i></label>
+        <input type="text" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+         <ng-container *ngTemplateOutlet="myLableTem; context: {tooltip:'Enter Pan Card' ,label:'Pan Card',}">
+
+         </ng-container>
+       
+        <input type="text" />
+    </div>
+     <div class="col-3">
+         <ng-container *ngTemplateOutlet="myLableTem; context: {tooltip:'Enter Aadhar Card' ,label:'Aadhar Card',}">
+
+         </ng-container>
+        <input type="text" />
+    </div> 
+</div>
+
+<ng-template #myLableTem let-tooltip="tooltip" let-labelText="label">
+     <label for="" title="{{tooltip}}">{{labelText}} <i class="fa fa-user"></i></label>
+</ng-template>

@@ -1,2 +1,3 @@
-<button (click)="btnClicked()" [class]="'btn ' + btnClassName"> 
-    {{btnTitle}}</button>
+<button (click)="btnClicked()" [class]="'btn ' + btnClassName">
+    <ng-content></ng-content>
+</button>

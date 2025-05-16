@@ -24,7 +24,7 @@
                                 <td>{{item.password}}</td>
                                 <td>
                                     <button class="btn btn-danger" (click)="onDelete(item.userId)">Delete</button>
-                                    <button class="btn btn-success" (click)="onEdit(item)">Edit</button>
+                                    <button class="btn btn-success" [routerLink]="'/addUser/'+item.userId "  >Edit</button>
                                 </td>
                             </tr>
                         }

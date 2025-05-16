@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterEvent, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { UserComponent } from './component/user/user.component';
 import { DepartmentComponent } from "./component/department/department.component";
 import { AdminComponent } from "./component/admin/admin.component";
@@ -16,4 +16,10 @@ import { DataBindingComponent } from './component/data-binding/data-binding.comp
 })
 export class AppComponent {
   title = 'test29';
+
+  constructor(private router: Router){
+    this.router.events.subscribe((event:any)=>{
+      debugger;
+    })
+  }
 }
