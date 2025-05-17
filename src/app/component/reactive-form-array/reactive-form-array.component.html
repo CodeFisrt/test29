@@ -1,0 +1,83 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-success" (click)="onSaveEmp()"> Save Employee</button>
+    </div>
+  </div>
+  <form [formGroup]="employeeForm">
+    <div class="row">
+
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Employee Details</h5>
+          </div>
+          <div class="card-body">
+
+            <div class="mb-3">
+              <label for="empName" class="form-label">Name</label>
+              <input type="text" id="empName" formControlName="name" class="form-control"
+                placeholder="Enter employee name" />
+            </div>
+            <div class="mb-3">
+              <label for="empEmail" class="form-label">Email</label>
+              <input type="email" id="empEmail" formControlName="email" class="form-control"
+                placeholder="Enter email" />
+            </div>
+            <div class="mb-3">
+              <label for="empPhone" class="form-label">Phone</label>
+              <input type="text" id="empPhone" formControlName="phone" class="form-control"
+                placeholder="Enter phone number" />
+            </div>
+            <div class="mb-3">
+              <label for="empDepartment" class="form-label">Department</label>
+              <input type="text" id="empDepartment" formControlName="department" class="form-control"
+                placeholder="Enter department" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Family Members FormArray -->
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Family Members</h5>
+            <button type="button" (click)="addFamilyGroup()" class="btn btn-light btn-sm">+ Add</button>
+          </div>
+          <div class="card-body" formArrayName="familyList">
+            <!-- Family Member List (Repeatable Block) -->
+            @for (item of getFamilyList.controls; track item) {
+            <div class="border rounded p-3 mb-3" [formGroupName]="$index">
+              <div class="d-flex justify-content-between">
+                <h6>Member </h6>
+                <button type="button" class="btn btn-danger btn-sm" (click)="removeFamily($index)">Remove</button>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="form-label">Name</label>
+                  <input type="text" formControlName="name" class="form-control" placeholder="Enter family member name" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Relation</label>
+                  <input type="text" formControlName="relation" class="form-control" placeholder="Enter relation" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Age</label>
+                  <input type="number" formControlName="age" class="form-control" placeholder="Enter age" />
+                </div>
+              </div>
+
+
+            </div>
+            }
+            <!-- End Repeatable Block -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>

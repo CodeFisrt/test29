@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-my-button',
@@ -8,15 +8,29 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class MyButtonComponent {
 
-    @Input() btnTitle: string = '';
-    @Input() btnClassName : string = '';
+  private btnTitle: string = '';
 
-    @Output() onBtnClick = new EventEmitter<string>();
+  @Input()
+  set title(value: string) {
+    debugger;
+    console.log('Input value changed:', value);
+    this.btnTitle = value.toUpperCase();
+  }
 
-    btnClicked() {
-      debugger;
-      const currentDate = new Date();
+  get title(): string {
+    return this.btnTitle;
+  }
 
-      this.onBtnClick.emit(currentDate.getTime().toString());
-    }
+  btnClassName = input<string>("");
+
+
+
+  @Output() onBtnClick = new EventEmitter<string>();
+
+  btnClicked() {
+    debugger;
+    const currentDate = new Date();
+
+    this.onBtnClick.emit(currentDate.getTime().toString());
+  }
 }

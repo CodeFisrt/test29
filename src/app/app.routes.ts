@@ -19,6 +19,7 @@ import { ViewchildComponent } from './component/viewchild/viewchild.component';
 import { AdvReactiveFormComponent } from './component/adv-reactive-form/adv-reactive-form.component';
 import { SignalComponent } from './component/signal/signal.component';
 import { TemplateComponent } from './component/template/template.component';
+import { ReactiveFormArrayComponent } from './component/reactive-form-array/reactive-form-array.component';
 
 export const routes: Routes = [
     {
@@ -60,6 +61,10 @@ export const routes: Routes = [
     {
         path:"post-api",
         component:PostRecordComponent
+    },
+     {
+        path:"form-array",
+        component:ReactiveFormArrayComponent
     },
      {
         path:"addUser/:id",

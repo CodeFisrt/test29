@@ -19,7 +19,7 @@ export class AppComponent {
 
   constructor(private router: Router){
     this.router.events.subscribe((event:any)=>{
-      debugger;
+      //debugger;
     })
   }
 }

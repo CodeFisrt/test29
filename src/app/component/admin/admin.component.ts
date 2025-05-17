@@ -19,6 +19,7 @@ export class AdminComponent implements OnInit {
   date: Date= new Date();
   minDate: Date = new Date();
   newMindata: Date;
+  btnText = "Save User"
   cities: any[]  = [
             { name: 'New York', code: 'NY' },
             { name: 'Rome', code: 'RM' },
@@ -33,6 +34,10 @@ export class AdminComponent implements OnInit {
   productList: any[] = [];
 
   constructor() { 
+
+    setTimeout(() => {
+      this.btnText = "Save Employee"
+    }, 5000);
     const d = new Date(this.minDate);
     d.setMonth(3);
     //const monthbackData = this.minDate.setMonth(-1);

@@ -1,3 +1,4 @@
-<button (click)="btnClicked()" [class]="'btn ' + btnClassName">
-    <ng-content></ng-content>
+<button (click)="btnClicked()" [class]="'btn ' + btnClassName()">
+    {{title}}
+    
 </button>

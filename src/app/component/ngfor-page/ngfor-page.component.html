@@ -10,10 +10,10 @@
         <!-- <ul>
             <li *ngFor="let city of cityList"> {{city}}</li> 
         </ul> -->
-        <app-my-button [btnTitle]="'Show Alert'" (onBtnClick)="showAlert()" [btnClassName]="'btn-success'"> </app-my-button>
+        <!-- <app-my-button [btnTitle]="'Show Alert'" (onBtnClick)="showAlert()" [btnClassName]="'btn-success'"> </app-my-button> -->
         <app-my-ul [arrayList]="cityList" [title]="'City List'"></app-my-ul>
     </div>
-    <div class="col-3">
+    <div class="col-3">app-my-button
         <button *ngFor="let cityName of cityList"  appHighlight class="btn btn-sm btn-success mx-2">{{cityName}}</button>
         <input *ngFor="let cityName of cityList" value="{{cityName}}" type="text">
     </div>
